@@ -1,0 +1,22 @@
+html,
+body {
+	height: 150vh;
+	margin: 0;
+}
+
+div {
+	width: 100px;
+	height: 100px;
+}
+
+.red {
+	background-color: red;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.orange {
+	background-color: orange;
+}

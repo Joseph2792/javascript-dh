@@ -1,20 +1,8 @@
-var contTareas = [];
+
 
 
 window.onload = function(){
     
-    var tareas = pedirTareas();
-
-    var confirmar = window.confirm("estas seguro que deseas agregar " + tareas); 
-    if (confirmar) {
-        var tarea = validarTarea(tareas);
-        contTareas.push(tarea);
-    }else{
-        tareas = pedirTareas();
-    }
-}
-
-function pedirTareas(){
     do {
         var cantTarea = window.prompt("Ingresar la cantidad de tareas que desea agregar");
         console.log(cantTarea);  
@@ -22,19 +10,29 @@ function pedirTareas(){
             alert("el dato debe ser un numero o mayor a 3");
         }         
     } while ( isNaN(cantTarea) || cantTarea < 3);
-    return cantTarea;
-}
-
-function validarTarea (cant){
-
-    for (let i = 0; i < cant; i++) {
+    var contTareas = [];
+    //var confirmar = window.confirm("estas seguro que deseas agregar " + cantTarea); 
+    for (var i = 0; i < cantTarea; i++) {
         
         do{
             var tarea = window.prompt("Ingresar descripcion de la tarea");  
-            if (tarea = "") {
+            if (tarea == "") {
                 alert("la tarea no debe estar vacia");
+            }else{
+                contTareas.push(tarea);
             }
-        }while( tarea = "")
+        }while( tarea == "")
+    }   
+    console.log(contTareas);
+    var ul = document.createElement('ul');
+    var elBody = document.querySelector('body');
+    
+    for (var n = 0; n < contTareas.length; n++) {
+        var li = document.createElement('li');
+        li.innerText = contTareas[n];
+        ul.append(li);
     }
-    return tarea;
+    
+    elBody.append(ul);
+    
 }
